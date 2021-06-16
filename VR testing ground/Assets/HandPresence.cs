@@ -6,6 +6,9 @@ using UnityEngine.XR;
 public class HandPresence : MonoBehaviour
 {
     public InputDeviceCharacteristics controllerCharacteristics;
+    public GameObject handModelPrefab;
+
+    private GameObject spawnedHandModel;
     private InputDevice targetDevice;
 
     // Start is called before the first frame update
@@ -22,6 +25,7 @@ public class HandPresence : MonoBehaviour
         if (devices.Count > 0)
         {
             targetDevice = devices[0];
+            spawnedHandModel = Instantiate(handModelPrefab, transform);
         }
     }
 
